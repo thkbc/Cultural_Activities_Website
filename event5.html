@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3-Day CityFest - Cappadocia</title>
+<link rel="stylesheet" href="city.css">
+</head>
+<body>
+    <header>
+        <button id="goBackButton">X</button>
+    </header>
+    <div class="container">
+        <div id="event-info">
+            <main>
+                <section>
+                    <h2><b>Event Details</b>></h2>
+                    <p><b>Date:</b> Sept 16-18, 2023</p>
+                    <p><b>Location:</b> Göreme National Park, Cappadocia</p>
+                    <p><b>Time:</b> All day</p>
+                    <p><b>Description:</b> Dive into the heart of Cappadocia with our 3-day CityFest, a cultural extravaganza featuring music, art, and culinary delights. Explore the unique landscape of Cappadocia while enjoying performances from some of the most talented local and international artists. The festival also includes workshops, art exhibitions, and guided tours of the historic sites, providing a comprehensive experience of the rich cultural tapestry of Cappadocia. Don't miss this chance to celebrate the vibrant culture and breathtaking beauty of one of Turkey's most iconic regions.</p>
+                </section>
+            </main>
+
+    </div>
+        <div id="event-photos">
+            <img src="hot-air-balloon-3.jpg" alt="Cappadocia Photo 1">
+            <img src="zelve-open-air-museum.jpg" alt="Cappadocia Photo 2">
+            <button id="prevPhoto">&lt;</button>
+            <button id="nextPhoto">&gt;</button>
+        </div>
+    </div>
+
+    <script>
+
+        document.getElementById("goBackButton").addEventListener("click", function() {
+            window.history.back();
+        });
+
+        var currentIndex = 0;
+        var photos = document.getElementById("event-photos").getElementsByTagName("img");
+        var totalPhotos = photos.length;
+
+        function showPhoto(index) {
+            if (index >= 0 && index < totalPhotos) {
+                for (var i = 0; i < totalPhotos; i++) {
+                    photos[i].style.display = "none";
+                }
+                photos[index].style.display = "block";
+                currentIndex = index;
+            }
+        }
+
+        showPhoto(currentIndex);
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("nextPhoto").addEventListener("click", function() {
+                showPhoto(currentIndex + 1);
+            });
+
+            document.getElementById("prevPhoto").addEventListener("click", function() {
+                showPhoto(currentIndex - 1);
+            });
+        });
+    </script>
+</body>
+</html>

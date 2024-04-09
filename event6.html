@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BalloonFest - Ürgüp</title>
+<link rel="stylesheet" href="city.css">
+</head>
+<body>
+    <header>
+        <button id="goBackButton">X</button>
+    </header>
+    <div class="container">
+        <div id="event-info">
+            <main>
+                <section>
+                    <h2><b>Event Details</b></h2>
+                    <p><b>Date:</b> August 4-7, 2022</p>
+                    <p><b>Location:</b> Ürgüp, Cappadocia</p>
+                    <p><b>Time:</b> Starts at 5:30 AM</p>
+                    <p><b>Description:</b> Rise above the earth with the annual BalloonFest in Ürgüp, Cappadocia. This early morning event invites you to float over the magical landscape of Cappadocia at sunrise, offering unparalleled views of the fairy chimneys, historic caves, and lush valleys. More than just a balloon ride, BalloonFest is a celebration of adventure and exploration, featuring local music, delicious food, and a vibrant atmosphere that captures the spirit of Cappadocia. Join us for an unforgettable experience that will lift you up in more ways than one.</p>
+                </section>
+            </main>
+
+    </div>
+        <div id="event-photos">
+            <img src="hot-air-balloon-3.jpg" alt="Cappadocia Photo 1">
+            <img src="zelve-open-air-museum.jpg" alt="Cappadocia Photo 2">
+            <button id="prevPhoto">&lt;</button>
+            <button id="nextPhoto">&gt;</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("goBackButton").addEventListener("click", function() {
+            window.history.back();
+        });
+        var currentIndex = 0;
+        var photos = document.getElementById("event-photos").getElementsByTagName("img");
+        var totalPhotos = photos.length;
+
+        function showPhoto(index) {
+            if (index >= 0 && index < totalPhotos) {
+                for (var i = 0; i < totalPhotos; i++) {
+                    photos[i].style.display = "none";
+                }
+                photos[index].style.display = "block";
+                currentIndex = index;
+            }
+        }
+
+        showPhoto(currentIndex);
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("nextPhoto").addEventListener("click", function() {
+                showPhoto(currentIndex + 1);
+            });
+
+            document.getElementById("prevPhoto").addEventListener("click", function() {
+                showPhoto(currentIndex - 1);
+            });
+        });
+    </script>
+</body>
+</html>

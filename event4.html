@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ice Climbing Event - Erzurum</title>
+<link rel="stylesheet" href="city.css">
+</head>
+<body>
+    <header>
+        <button id="goBackButton">X</button>
+    </header>
+    <div class="container">
+        <div id="event-info">
+            <main>
+                <section>
+                    <h2><b>Event Details</b></h2>
+                    <p><b>Date:</b> January 25, 2023</p>
+                    <p><b>Location:</b> Erzurum Ice Climbing Park</p>
+                    <p><b>Time:</b> 10:00 AM</p>
+                    <p><b>Description:</b> Gear up for an exhilarating ice climbing adventure in Erzurum. This event is perfect for climbers of all levels, from beginners seeking to learn the ropes to experienced climbers looking to tackle some of the most challenging routes. Our experienced instructors will guide you through the basics of ice climbing, ensuring a safe and thrilling experience amidst the stunning winter landscape of Erzurum.</p>
+                </section>
+            </main>
+
+    </div>
+        <div id="event-photos">
+            <img src="48-hours-in-erzurum-desktop-kapak.jpg" alt="Erzurum Photo 1">
+            <img src="listen-erzurum-desktop-kapak.jpg" alt="Erzurum Photo 2">
+            <img src="see-erzurum-desktop-kapak.jpg" alt="Erzurum Photo 3">
+            <button id="prevPhoto">&lt;</button>
+            <button id="nextPhoto">&gt;</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("goBackButton").addEventListener("click", function() {
+            window.history.back();
+        });
+
+        var currentIndex = 0;
+        var photos = document.getElementById("event-photos").getElementsByTagName("img");
+        var totalPhotos = photos.length;
+
+        function showPhoto(index) {
+            if (index >= 0 && index < totalPhotos) {
+                for (var i = 0; i < totalPhotos; i++) {
+                    photos[i].style.display = "none";
+                }
+                photos[index].style.display = "block";
+                currentIndex = index;
+            }
+        }
+
+        showPhoto(currentIndex);
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("nextPhoto").addEventListener("click", function() {
+                showPhoto(currentIndex + 1);
+            });
+
+            document.getElementById("prevPhoto").addEventListener("click", function() {
+                showPhoto(currentIndex - 1);
+            });
+        });
+    </script>
+</body>
+</html>

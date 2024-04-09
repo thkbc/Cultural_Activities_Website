@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="boxbar">
+            <div class="logo">
+                <a href="index.html">Turkiye</a>
+            </div>
+            <ul>
+                <li><a href="index.html" class="active">Home Page</a></li>
+                <li><a href="instruments.html">Instrument</a></li>
+                <li><a href="places.html">Places</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+            </ul>
+        </div>
+        <div class="center">
+            <h1>Turkiye Culture</h1>
+            <h2>WELCOME</h2>
+            <div class="slideshow">
+                <a href="event1.html" class="slide-link"><img class="slide" src="istanbulevent.jpg" alt="Event 1"></a>
+                <a href="event2.html" class="slide-link"><img class="slide" src="erzurumevent2.jpg" alt="Event 2"></a>
+                <a href="event3.html" class="slide-link"><img class="slide" src="ankaraevent.jpg" alt="Event 3"></a>
+                <a href="event4.html" class="slide-link"><img class="slide" src="erzurumevent.jpg" alt="Event 4"></a>
+                <a href="event5.html" class="slide-link"><img class="slide" src="kapadokyaevent.jpg" alt="Event 5"></a>
+                <a href="event6.html" class="slide-link"><img class="slide" src="kapadokyaevent2.jpg" alt="Event 6"></a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            const slides = document.getElementsByClassName("slide");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>City Information</title>
+<link rel="stylesheet" href="city.css">
+</head>
+<body>
+    <header>
+        <button id="goBackButton">X</button>
+    </header>
+    <div class="container">
+        <div id="city-info">
+            <h1>Erzurum</h1>
+            <p>Erzurum is a historic city located in the Eastern Anatolia Region of Turkey, renowned for its rich cultural heritage and stunning natural beauty. Situated at an altitude of over 1,900 meters, Erzurum experiences a continental climate with cold winters and mild summers.</p>
+
+<p>With a history dating back thousands of years, Erzurum has been a crossroads of civilizations, leaving behind a legacy of diverse architectural styles and cultural influences. One of the city's most famous landmarks is the Erzurum Castle (Erzurum Kalesi), built during the Byzantine period and later expanded by various rulers, including the Seljuks and Ottomans.</p>
+
+<p>Erzurum is also known for its distinctive cuisine, which includes hearty dishes suited to its cold climate. Specialties such as "çılbır" (poached eggs in yogurt) and "cağ kebabı" (skewered meat cooked over an open flame) are popular among locals and visitors alike.</p>
+
+<p>For outdoor enthusiasts, Erzurum offers ample opportunities for adventure. The Palandöken Mountain range, located just outside the city, is a popular destination for skiing and snowboarding enthusiasts, with world-class facilities and breathtaking vistas.</p>
+
+<p>History buffs will find plenty to explore in Erzurum's museums and historical sites. The Atatürk House Museum, located in the house where Mustafa Kemal Atatürk, the founder of the Turkish Republic, stayed during the War of Independence, offers insights into his life and legacy.</p>
+
+<p>The Çifte Minareli Medrese (Twin Minaret Madrasa) is another architectural gem worth visiting, known for its intricate Seljuk design and decorative tilework. Dating back to the 13th century, it stands as a testament to Erzurum's rich Islamic heritage.</p>
+
+<p>For those interested in religious history, the Three Tombs (Üç Kümbetler) complex houses the tombs of three Seljuk princes, adorned with exquisite stone carvings and decorative motifs.</p>
+
+<p>Overall, Erzurum captivates visitors with its blend of history, culture, and natural beauty. Whether skiing down snowy slopes, exploring ancient landmarks, or savoring local delicacies, Erzurum offers a memorable experience for travelers seeking to immerse themselves in Turkey's eastern charm.</p>
+    </div>
+        <div id="city-photos">
+            <img src="48-hours-in-erzurum-desktop-kapak.jpg" alt="Erzurum Photo 1">
+            <img src="listen-erzurum-desktop-kapak.jpg" alt="Erzurum Photo 2">
+            <img src="see-erzurum-desktop-kapak.jpg" alt="Erzurum Photo 3">
+            <button id="prevPhoto">&lt;</button>
+            <button id="nextPhoto">&gt;</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("goBackButton").addEventListener("click", function() {
+            window.history.back();
+        });
+
+        var currentIndex = 0;
+        var photos = document.getElementById("city-photos").getElementsByTagName("img");
+        var totalPhotos = photos.length;
+
+        function showPhoto(index) {
+            if (index >= 0 && index < totalPhotos) {
+                for (var i = 0; i < totalPhotos; i++) {
+                    photos[i].style.display = "none";
+                }
+                photos[index].style.display = "block";
+                currentIndex = index;
+            }
+        }
+
+        showPhoto(currentIndex);
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("nextPhoto").addEventListener("click", function() {
+                showPhoto(currentIndex + 1);
+            });
+
+            document.getElementById("prevPhoto").addEventListener("click", function() {
+                showPhoto(currentIndex - 1);
+            });
+        });
+    </script>
+</body>
+</html>

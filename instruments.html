@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coulture </title>
+    <link rel="stylesheet" href="instrumentstyle.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="boxbar">
+            <div class="logo">
+                <a href="index.html"> Turkiye</a>
+            </div>
+            <ul>
+                <li><a href="index.html">Home Page</a></li>
+                <li><a href="instruments.html" class="active">Instrument</a></li>
+                <li><a href="places.html">Places</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+            </ul>
+        </div>
+
+        <div class="musicPlayer" data-region="Tulum">
+            <h2>Tulum</h2>
+            <audio id="IstanbulMusic" ontimeupdate="updateProgress('Istanbul')">
+                <source src="tulum.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <button class="playButton" onclick="togglePlayPause('Istanbul')">Play</button>
+            <input type="range" id="IstanbulProgress" value="0" step="1" oninput="changeTime('Istanbul')"
+                style="width: 100%;">
+            <span id="IstanbulCurrentTime">0:00</span> / <span id="IstanbulDuration">0:00</span>
+        </div>
+
+        <div class="musicPlayer" data-region="Kemence">
+            <h2>Kemence</h2>
+            <audio id="AnkaraMusic" ontimeupdate="updateProgress('Ankara')">
+                <source src="kemence.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <button class="playButton" onclick="togglePlayPause('Ankara')">Play</button>
+            <input type="range" id="AnkaraProgress" value="0" step="1" oninput="changeTime('Ankara')"
+                style="width: 100%;">
+            <span id="AnkaraCurrentTime">0:00</span> / <span id="AnkaraDuration">0:00</span>
+        </div>
+
+        <div class="musicPlayer" data-region="Zurna">
+            <h2>Zurna</h2>
+            <audio id="ErzurumMusic" ontimeupdate="updateProgress('Erzurum')">
+                <source src="zurna.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <button class="playButton" onclick="togglePlayPause('Erzurum')">Play</button>
+            <input type="range" id="ErzurumProgress" value="0" step="1" oninput="changeTime('Erzurum')"
+                style="width: 100%;">
+            <span id="ErzurumCurrentTime">0:00</span> / <span id="ErzurumDuration">0:00</span>
+        </div>
+
+        <div class="musicPlayer" data-region="Baglama">
+            <h2>Baglama</h2>
+            <audio id="ErzurumMusic" ontimeupdate="updateProgress('Erzurum')">
+                <source src="baglama.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <button class="playButton" onclick="togglePlayPause('Erzurum')">Play</button>
+            <input type="range" id="ErzurumProgress" value="0" step="1" oninput="changeTime('Erzurum')"
+                style="width: 100%;">
+            <span id="ErzurumCurrentTime">0:00</span> / <span id="ErzurumDuration">0:00</span>
+        </div>
+        <script>
+            function togglePlayPause(region) {
+                const audio = document.getElementById(region + "Music");
+                const button = document.querySelector(`.musicPlayer[data-region="${region}"] .playButton`);
+                if (audio.paused) {
+                    audio.play();
+                    button.textContent = "Pause";
+                } else {
+                    audio.pause();
+                    button.textContent = "Play";
+                }
+            }
+
+            function updateProgress(region) {
+                const audio = document.getElementById(region + "Music");
+                const progress = document.getElementById(region + "Progress");
+                const currentTime = document.getElementById(region + "CurrentTime");
+                const duration = document.getElementById(region + "Duration");
+
+                const audioDuration = audio.duration;
+                const audioCurrentTime = audio.currentTime;
+
+                progress.max = audioDuration;
+                progress.value = audioCurrentTime;
+
+                currentTime.textContent = formatTime(audioCurrentTime);
+                if (audioDuration) {
+                    duration.textContent = formatTime(audioDuration);
+                }
+            }
+
+            function changeTime(region) {
+                const audio = document.getElementById(region + "Music");
+                const progress = document.getElementById(region + "Progress");
+                audio.currentTime = progress.value;
+            }
+
+            function formatTime(time) {
+                const minutes = Math.floor(time / 60);
+                const seconds = Math.floor(time % 60);
+                return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            }
+
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const audios = document.querySelectorAll('audio');
+                audios.forEach(audio => {
+                    audio.onloadedmetadata = () => updateProgress(audio.id.replace("Music", ""));
+                });
+            });
+        </script>
+
+</body>
+
+</html>

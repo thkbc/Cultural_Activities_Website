@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.container {
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+#city-photos {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#city-photos img {
+    width: 780px;
+    height: 500px;
+    margin: 0 10px;
+    display: none;
+}
+
+#city-photos img:first-child {
+    display: block;
+}
+
+#event-photos {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#event-photos img {
+    width: 500px;
+    height: 350px;
+    margin: 0 10px;
+    display: none;
+}
+
+#event-photos img:first-child {
+    display: block;
+}
+
+#prevPhoto,
+#nextPhoto {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(250, 130, 10, 0.7);
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#prevPhoto {
+    left: 10px;
+}
+
+#nextPhoto {
+    right: 10px;
+}
+
+#goBackButton {
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    width: 30px; 
+    height: 30px;
+    cursor: pointer;
+    background: rgba(250, 26, 10, 0.909);
+    border-radius: 6px;
+}
+
+#city-info h1 {
+    color: #ff5c33;
+    text-align: center;
+}

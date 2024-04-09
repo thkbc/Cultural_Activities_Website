@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>City Information</title>
+<link rel="stylesheet" href="city.css">
+</head>
+<body>
+    <header>
+        <button id="goBackButton">X</button>
+    </header>
+    <div class="container">
+        <div id="city-info">
+            <h1>Ankara</h1>
+            <p>Ankara is the capital and the second most populous city in Turkey, serving as a significant metropolitan area. Geographically located in the Central Anatolia Region, it has been a home to numerous civilizations throughout history.</p>
+
+            <p>Modern Ankara stands as a testament to Turkey's rich historical tapestry, with landmarks and monuments that reflect its diverse heritage. One of the most iconic symbols of Ankara is the Atatürk Mausoleum (Anıtkabir), dedicated to the founder of the Turkish Republic, Mustafa Kemal Atatürk.</p>
+            
+            <p>Aside from its historical significance, Ankara is a thriving center of culture, education, and commerce. The city hosts several prestigious universities, including Ankara University and Middle East Technical University (METU), attracting students from around the world.</p>
+            
+            <p>For tourists, Ankara offers a blend of ancient history and modern attractions. The Museum of Anatolian Civilizations is a must-visit, showcasing artifacts from various Anatolian civilizations, including the Hittites, Phrygians, and Urartians.</p>
+            
+            <p>Ankara Castle (Ankara Kalesi) is another notable landmark, offering panoramic views of the city. Built during the Byzantine era and later expanded by the Romans, the castle stands as a testament to Ankara's strategic importance throughout history.</p>
+            
+            <p>For nature enthusiasts, the Atatürk Forest Farm and Zoo (Atatürk Orman Çiftliği) provide a serene escape from the urban hustle. Spanning over 1,000 hectares, it offers lush greenery, picnic areas, and a zoo with various animal species.</p>
+            
+            <p>Food lovers will find plenty to indulge in Ankara's culinary scene, which offers a diverse array of traditional Turkish dishes and international cuisine. From savory kebabs to mouthwatering desserts like baklava, the city's dining options cater to every palate.</p>
+            
+            <p>Overall, Ankara presents visitors with a unique blend of history, culture, and modernity. Whether exploring ancient ruins, admiring historical landmarks, or indulging in culinary delights, there's something for everyone to enjoy in Turkey's vibrant capital.</p>
+    </div>
+        <div id="city-photos">
+            <img src="see-ankara-desktop-kapak.jpg" alt="Ankara Photo 1">
+            <img src="routes-ankara-desktop-kapak.jpg" alt="Ankara Photo 2">
+            <img src="10-08.jpg" alt="Ankara Photo 3">
+            <button id="prevPhoto">&lt;</button>
+            <button id="nextPhoto">&gt;</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("goBackButton").addEventListener("click", function() {
+            window.history.back();
+        });
+
+        var currentIndex = 0;
+        var photos = document.getElementById("city-photos").getElementsByTagName("img");
+        var totalPhotos = photos.length;
+
+        function showPhoto(index) {
+            if (index >= 0 && index < totalPhotos) {
+                for (var i = 0; i < totalPhotos; i++) {
+                    photos[i].style.display = "none";
+                }
+                photos[index].style.display = "block";
+                currentIndex = index;
+            }
+        }
+
+        showPhoto(currentIndex);
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("nextPhoto").addEventListener("click", function() {
+                showPhoto(currentIndex + 1);
+            });
+
+            document.getElementById("prevPhoto").addEventListener("click", function() {
+                showPhoto(currentIndex - 1);
+            });
+        });
+    </script>
+</body>
+</html>

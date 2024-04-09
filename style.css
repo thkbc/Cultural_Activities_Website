@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Maps&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial Narrow', sans-serif;
+}
+
+.container {
+    background: url(travertines-of-pamukkale-thermal-pools-limestone-turkey-3840x2160-1601.jpg);
+    height: 100vh;
+    background-size: 100% 100%;
+}
+
+.container .boxbar {
+    width: 100%;
+    height: 75px;
+    background: rgba(145, 18, 33, 0.47);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boxbar .logo {
+    margin-left: 20px;
+}
+
+.boxbar .logo a {
+    font-size: 30px;
+    font-family: 'Rubik Maps', sans-serif;
+    color: floralwhite;
+    text-decoration: none;
+}
+
+.boxbar ul {
+    display: flex;
+    margin-right: 30px;
+}
+
+.boxbar ul li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+.boxbar ul li a {
+    font-size: 23px;
+    color: floralwhite;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 12px;
+}
+
+.boxbar ul li a.active,
+.boxbar ul li a:hover {
+    background: #eb2431;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.center h1,
+.center h2 {
+    color: #ff5c33;
+}
+
+.slideshow {
+    max-width: 100%;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.slide {
+    display: block;
+    width: 600px; 
+    height: 350px; 
+    margin: 0 auto;
+    border: 4px solid #ff5c33;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.slide img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.slide-link {
+    display: block;
+    text-decoration: none;
+}
+
+.slide-link:hover .slide {
+    opacity: 0.8;
+}
+@media (max-width: 768px) {
+    .boxbar .logo a {
+        font-size: 24px; 
+    }
+
+    .boxbar ul li a {
+        font-size: 18px; 
+    }
+
+    .center h1 {
+        font-size: 50px; 
+    }
+
+    .center h2 {
+        font-size: 30px; 
+    }
+}
+

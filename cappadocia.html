@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>City Information</title>
+<link rel="stylesheet" href="city.css">
+</head>
+<body>
+    <header>
+        <button id="goBackButton">X</button>
+    </header>
+    <div class="container">
+        <div id="city-info">
+            <h1>Cappadocia</h1>
+            <p>Cappadocia, located in central Turkey, is a mesmerizing region renowned for its surreal landscape, rich history, and unique cultural heritage. Formed by volcanic eruptions millions of years ago, Cappadocia's otherworldly terrain is characterized by fairy chimneys, rock-cut dwellings, and towering rock formations.</p>
+
+            <p>One of the most iconic features of Cappadocia is its countless cave dwellings and churches carved into the soft volcanic rock. Göreme Open Air Museum, a UNESCO World Heritage Site, showcases some of the finest examples of rock-cut architecture and Byzantine art, with ancient churches adorned with intricate frescoes.</p>
+            
+            <p>Balloon rides over Cappadocia's breathtaking landscape are a popular activity, offering visitors a bird's-eye view of the region's lunar-like terrain and fairy tale-like scenery. Watching the sunrise or sunset from a hot air balloon is an unforgettable experience and one of the best ways to appreciate Cappadocia's beauty.</p>
+            
+            <p>The town of Ürgüp serves as a hub for exploring Cappadocia's wonders, with its charming streets lined with cave hotels, boutique shops, and traditional Turkish restaurants. Visitors can also visit the nearby Göreme National Park, home to countless hiking trails that lead to hidden valleys, ancient churches, and panoramic viewpoints.</p>
+            
+            <p>For history enthusiasts, Cappadocia offers a glimpse into its rich past through its numerous underground cities, such as Derinkuyu and Kaymaklı, which were carved into the rock to provide shelter during times of war and persecution. These subterranean complexes are marvels of ancient engineering and offer insights into Cappadocia's unique cultural heritage.</p>
+            
+            <p>The region is also known for its pottery traditions, with towns like Avanos famous for their handmade ceramics. Visitors can watch skilled artisans at work in local pottery workshops and even try their hand at crafting their own pottery pieces.</p>
+            
+            <p>With its stunning landscape, rich history, and unique cultural experiences, Cappadocia offers a truly unforgettable journey for travelers seeking to explore one of Turkey's most captivating destinations.</p>
+    </div>
+        <div id="city-photos">
+            <img src="hot-air-balloon-3.jpg" alt="Cappadocia Photo 1">
+            <img src="images.jfjf" alt="Cappadocia Photo 2">
+            <img src="zelve-open-air-museum.jpg" alt="Cappadocia Photo 3">
+            <button id="prevPhoto">&lt;</button>
+            <button id="nextPhoto">&gt;</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("goBackButton").addEventListener("click", function() {
+            window.history.back();
+        });
+
+        var currentIndex = 0;
+        var photos = document.getElementById("city-photos").getElementsByTagName("img");
+        var totalPhotos = photos.length;
+
+        function showPhoto(index) {
+            if (index >= 0 && index < totalPhotos) {
+                for (var i = 0; i < totalPhotos; i++) {
+                    photos[i].style.display = "none";
+                }
+                photos[index].style.display = "block";
+                currentIndex = index;
+            }
+        }
+
+        showPhoto(currentIndex);
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("nextPhoto").addEventListener("click", function() {
+                showPhoto(currentIndex + 1);
+            });
+
+            document.getElementById("prevPhoto").addEventListener("click", function() {
+                showPhoto(currentIndex - 1);
+            });
+        });
+    </script>
+</body>
+</html>
+
